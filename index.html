@@ -34,30 +34,59 @@
             border-radius: 5px;
         }
     </style>
+
+    <!-- CSS voor de player -->
+    <link href="https://stream.mfmstreaming.nl:1560/media/static/css/player/base.css" rel="stylesheet" type="text/css" />
+    <link href="https://stream.mfmstreaming.nl:1560/media/static/css/player/style-1.css" rel="stylesheet" type="text/css" />
+    <link href="https://stream.mfmstreaming.nl:1560/media/static/css/ui/jquery.ui.slider.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery en JS voor de player -->
+    <script>
+        if (typeof jQuery == 'undefined') { 
+            var i = "i";
+            document.write('<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></scr' + i + 'pt>');
+        }
+    </script>
+    <script type="text/javascript" src="https://stream.mfmstreaming.nl:1560/media/static/js/jplayer/jquery.jplayer.min.js"></script>
+    <script type="text/javascript" src="https://stream.mfmstreaming.nl:1560/media/static/js/jplayer/jquery-ui-1.10.2.custom.min.js"></script>
+    <script type="text/javascript" src="https://stream.mfmstreaming.nl:1560/media/static/js/jplayer/modernizr.js"></script>
+    <script type="text/javascript" src="https://stream.mfmstreaming.nl:1560/media/static/js/jplayer/rt_pl.js"></script>
+
 </head>
 <body>
     <div class="container">
         <h1>Live: TikTok Programma</h1>
         <p>Luister live naar de uitzending!</p>
-        
-        <!-- Streamlink, vervang met jouw echte Shoutcast URL -->
-        <audio controls>
-    <source src="http://stream.mfmstreaming.nl:1590/stream" type="audio/mpeg">
-    Je browser ondersteunt geen audiostreaming.
-</audio>
-        
+
+        <!-- Nieuwe player -->
+        <div id="rtJpID-1"></div>
+        <div class="rtplwrapperForIe">
+            <div id="rtplayer-1" class="rtplmain_window gradient_style-1">
+                <a id="button_play_stop-1" class="rtplbutton_play_stop button_play_stop_style-1" href="#"></a>
+                <div id="current_time-1" class="rtplcurrent_time">00:00:00</div>
+                <a id="rtplmute-1" class="rtplmute button_mute_style-1" href="#"></a>
+                <div id="rtplvolume-1" class="rtplvolume"></div>
+                <a id="rtplmaxvol-1" class="rtplmaxvol button_max_vol_style-1" href="#"></a>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+                new RTPlayer(1, 50, false, "https://stream.mfmstreaming.nl:1560", "mp3", {"mp3": "https://stream.mfmstreaming.nl/Weblive"}, "en");
+            });
+        </script>
+
         <!-- Reclameblok -->
         <div class="ad">
             <p>Advertentieplek beschikbaar! Neem contact op voor meer info.</p>
         </div>
-        
+
         <!-- Banneradvertentie -->
         <div class="banner">
             <a href="https://www.mooifeessie.nl" target="_blank">
-                <img src="https://raw.githubusercontent.com/GBFM/tiktokpiraat/refs/heads/main/Untitled%20design.png" alt="Advertentie">
+                <img src="https://github.com/GBFM/tiktokpiraat/blob/main/Untitled%20design.png?raw=true" alt="Advertentie">
             </a>
         </div>
     </div>
 </body>
 </html>
-
